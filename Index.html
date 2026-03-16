@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILHAM BYPASS - AMBATUKAM EDITION</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #0d0d0f; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+        .container { background-color: #121217; padding: 40px; border-radius: 20px; text-align: center; width: 380px; border: 1px solid #1a1a20; box-shadow: 0 10px 30px rgba(0,0,0,0.6); position: relative; z-index: 2; }
+        .logo { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #00c6ff; margin-bottom: 20px; }
+        h1 { font-size: 24px; font-weight: 700; margin-bottom: 5px; }
+        .slogan { font-size: 13px; color: #88888e; margin-bottom: 30px; }
+        .input-box { width: 100%; padding: 15px; background-color: #08080a; border-radius: 10px; border: 1px solid #1a1a20; color: white; text-align: center; margin-bottom: 15px; outline: none; }
+        .btn { width: 100%; padding: 15px; border-radius: 10px; border: none; font-weight: 700; font-size: 16px; color: white; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
+        .btn-process { background: linear-gradient(90deg, #00c6ff, #00ff88); margin-bottom: 20px; }
+        #redeemArea { display: none; border-top: 1px solid #1a1a20; padding-top: 20px; margin-top: 20px; }
+        .btn-redeem { background: linear-gradient(90deg, #00ff88, #28a745); }
+        
+        /* Music Info Floating */
+        .music-info { position: fixed; bottom: 10px; left: 10px; font-size: 10px; color: #555; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="https://tr.rbxcdn.com/f04403606f368f560e90c863a3580100/150/150/Image/Png" class="logo">
+    <h1>ILHAM BYPASS</h1>
+    <p class="slogan">DELTA KEY INSTANT REDEEMER</p>
+
+    <input type="text" id="deltaLink" class="input-box" placeholder="Paste link Platoboost di sini...">
+    <button class="btn btn-process" onclick="startBypass()">PROCESS BYPASS</button>
+    <p id="status" style="font-size: 12px; color: #888;">Status: Menunggu...</p>
+
+    <div id="redeemArea">
+        <p style="color: #00ff88; font-weight: bold; margin-bottom: 10px;">BYPASS SUCCESS!</p>
+        <button class="btn btn-redeem" onclick="instantRedeem()">INSTANT REDEEM</button>
+    </div>
+</div>
+
+<div class="music-info">🔊 Now Playing: DJ AMBATUKAM TERMUWANI</div>
+
+<audio id="ambatukamAudio" loop>
+    <source src="https://files.catbox.moe/p9o481.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    const audio = document.getElementById("ambatukamAudio");
+
+    function startBypass() {
+        // Mulai putar musik pas tombol diklik (karena aturan browser)
+        audio.play().catch(e => console.log("Audio play blocked"));
+
+        const link = document.getElementById('deltaLink').value;
+        if (!link.includes("platoboost")) return alert("Link mana Bang?");
+
+        document.getElementById('status').innerText = "Bot Lagi Kerja... Tahan ya Om!";
+        
+        setTimeout(() => {
+            document.getElementById('status').innerText = "Selesai!";
+            document.getElementById('redeemArea').style.display = "block";
+        }, 4000);
+    }
+
+    function instantRedeem() {
+        navigator.clipboard.writeText("NAJIM-KEY-SUCCESS-2026");
+        alert("Key Berhasil Di-Redeem! Balik ke Roblox.");
+    }
+
+    // Auto-play pancingan
+    document.body.addEventListener('click', function() {
+        audio.play();
+    }, { once: true });
+</script>
+
+</body>
+</html>
