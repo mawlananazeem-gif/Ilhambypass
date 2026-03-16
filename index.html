@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ILHAM BYPASS - AMBATUKAM</title>
+    <title>ILHAM BYPASS - OFFICIAL</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: #0d0d0f; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; cursor: pointer; }
+        body { background-color: #0d0d0f; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; }
         .container { background-color: #121217; padding: 30px; border-radius: 20px; text-align: center; width: 90%; max-width: 350px; border: 1px solid #00c6ff; box-shadow: 0 0 20px rgba(0, 198, 255, 0.3); }
-        .logo { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #00c6ff; margin-bottom: 15px; box-shadow: 0 0 15px #00c6ff; }
-        h1 { font-size: 22px; color: #00c6ff; margin-bottom: 20px; }
-        .input-box { width: 100%; padding: 12px; background: #1a1a20; border: 1px solid #333; border-radius: 8px; color: white; margin-bottom: 15px; outline: none; }
+        .logo { width: 150px; height: 150px; border-radius: 20px; border: 3px solid #00c6ff; margin-bottom: 20px; object-fit: cover; box-shadow: 0 0 15px #00c6ff; }
+        h1 { font-size: 24px; color: #00c6ff; margin-bottom: 10px; }
+        p.desc { font-size: 12px; color: #888; margin-bottom: 20px; }
+        .input-box { width: 100%; padding: 12px; background: #1a1a20; border: 1px solid #333; border-radius: 8px; color: white; margin-bottom: 15px; outline: none; text-align: center; }
         .btn { width: 100%; padding: 12px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; }
         .btn-blue { background: #00c6ff; color: black; margin-bottom: 10px; }
         #redeem-area { display: none; margin-top: 15px; border-top: 1px dashed #333; padding-top: 15px; }
-        .status { font-size: 12px; color: #888; margin-top: 10px; }
     </style>
 </head>
-<body onclick="playMusic()">
+<body>
 
 <div class="container">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6vI2_398eI6E9zC5m9Xv-zK-1-tqA_O1rLg&s" class="logo">
+    <img src="https://api.duniagames.co.id/api/content/upload/file/8316142161660281273.jpg" class="logo" alt="Ilham Bypass">
+    
     <h1>ILHAM BYPASS</h1>
+    <p class="desc">"Delta Key Instant Redeemer by Ilham Bypass"</p>
     
     <input type="text" id="link" class="input-box" placeholder="Paste link Delta di sini...">
     <button class="btn btn-blue" onclick="start()">PROCESS BYPASS</button>
-    <div id="status" class="status">Status: Menunggu Klik...</div>
 
     <div id="redeem-area">
         <p style="color:#00ff88; font-size:14px; margin-bottom:10px;">BERHASIL DI BYPASS!</p>
@@ -34,32 +35,23 @@
     </div>
 </div>
 
-<audio id="audio" loop>
-    <source src="https://files.catbox.moe/p9o481.mp3" type="audio/mpeg">
-</audio>
-
 <script>
-    const audio = document.getElementById("audio");
-    
-    function playMusic() {
-        audio.play().catch(() => {});
-    }
-
     function start() {
         const input = document.getElementById('link').value;
-        if(input === "") return alert("Isi linknya dulu Bang!");
+        if(input === "") return alert("Isi linknya dulu mase!");
         
-        document.getElementById('status').innerText = "Lagi di Bypass Ambatukam...";
+        const btn = document.querySelector('.btn-blue');
+        btn.innerText = "Processing...";
         
         setTimeout(() => {
-            document.getElementById('status').innerText = "Selesai!";
+            btn.innerText = "DONE!";
             document.getElementById('redeem-area').style.display = "block";
-        }, 3000);
+        }, 2500);
     }
 
     function copyKey() {
-        navigator.clipboard.writeText("AMBATUKAM-KEY-6969");
-        alert("Key Berhasil Di-Copy! Sekarang balik ke Roblox.");
+        navigator.clipboard.writeText("ILHAM-BYPASS-SUCCESS-2026");
+        alert("Key Berhasil Di-Copy!");
     }
 </script>
 
