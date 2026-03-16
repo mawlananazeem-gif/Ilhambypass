@@ -3,57 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ILHAM BYPASS - OFFICIAL</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>ILHAM BYPASS - INSTANT</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: #0d0d0f; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; }
-        .container { background-color: #121217; padding: 30px; border-radius: 20px; text-align: center; width: 90%; max-width: 350px; border: 1px solid #00c6ff; box-shadow: 0 0 20px rgba(0, 198, 255, 0.3); }
-        .logo { width: 150px; height: 150px; border-radius: 20px; border: 3px solid #00c6ff; margin-bottom: 20px; object-fit: cover; box-shadow: 0 0 15px #00c6ff; }
-        h1 { font-size: 24px; color: #00c6ff; margin-bottom: 10px; }
-        p.desc { font-size: 12px; color: #888; margin-bottom: 20px; }
-        .input-box { width: 100%; padding: 12px; background: #1a1a20; border: 1px solid #333; border-radius: 8px; color: white; margin-bottom: 15px; outline: none; text-align: center; }
-        .btn { width: 100%; padding: 12px; border-radius: 8px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .btn-blue { background: #00c6ff; color: black; margin-bottom: 10px; }
-        #redeem-area { display: none; margin-top: 15px; border-top: 1px dashed #333; padding-top: 15px; }
+        body { background: #0f0f13; color: white; font-family: sans-serif; text-align: center; padding: 50px 20px; }
+        .box { background: #1a1a20; padding: 20px; border-radius: 15px; border: 1px solid #00c6ff; }
+        input { width: 90%; padding: 12px; margin: 10px 0; border-radius: 5px; border: none; }
+        button { width: 95%; padding: 12px; background: #00c6ff; border: none; color: black; font-weight: bold; border-radius: 5px; cursor: pointer; }
+        #result { margin-top: 20px; color: #00ff88; font-weight: bold; word-break: break-all; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <img src="https://api.duniagames.co.id/api/content/upload/file/8316142161660281273.jpg" class="logo" alt="Ilham Bypass">
-    
-    <h1>ILHAM BYPASS</h1>
-    <p class="desc">"Delta Key Instant Redeemer by Ilham Bypass"</p>
-    
-    <input type="text" id="link" class="input-box" placeholder="Paste link Delta di sini...">
-    <button class="btn btn-blue" onclick="start()">PROCESS BYPASS</button>
-
-    <div id="redeem-area">
-        <p style="color:#00ff88; font-size:14px; margin-bottom:10px;">BERHASIL DI BYPASS!</p>
-        <button class="btn" style="background:#00ff88;" onclick="copyKey()">INSTANT REDEEM</button>
+    <div class="box">
+        <h2>DELTA AUTO BYPASS</h2>
+        <p>Tempel Link Linkvertise/Delta di bawah:</p>
+        <input type="text" id="targetLink" placeholder="https://linkvertise.com/...">
+        <button onclick="startBypass()">AUTO BYPASS SEKARANG</button>
+        
+        <div id="result"></div>
     </div>
-</div>
 
-<script>
-    function start() {
-        const input = document.getElementById('link').value;
-        if(input === "") return alert("Isi linknya dulu mase!");
-        
-        const btn = document.querySelector('.btn-blue');
-        btn.innerText = "Processing...";
-        
-        setTimeout(() => {
-            btn.innerText = "DONE!";
-            document.getElementById('redeem-area').style.display = "block";
-        }, 2500);
-    }
+    <script>
+        async function startBypass() {
+            const link = document.getElementById('targetLink').value;
+            const resDiv = document.getElementById('result');
+            
+            if(!link) return alert("Masukan link dulu!");
+            
+            resDiv.innerText = "Mohon tunggu, Bot lagi kerja...";
 
-    function copyKey() {
-        navigator.clipboard.writeText("ILHAM-BYPASS-SUCCESS-2026");
-        alert("Key Berhasil Di-Copy!");
-    }
-</script>
+            try {
+                // Ini contoh pakai API Bypasser publik (Bisa mati kapan saja)
+                const response = await fetch(`https://api.bypass.vip/bypass?url=${encodeURIComponent(link)}`);
+                const data = await response.json();
 
+                if(data.status === "success") {
+                    resDiv.innerHTML = `HASIL BYPASS:<br><span style="color:white">${data.result}</span>`;
+                } else {
+                    resDiv.innerText = "Gagal! Link mungkin sudah expired atau API Down.";
+                }
+            } catch (err) {
+                resDiv.innerText = "Error: Bot sedang sibuk atau API tidak merespon.";
+            }
+        }
+    </script>
 </body>
 </html>
